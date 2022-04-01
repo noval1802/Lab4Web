@@ -466,11 +466,11 @@ Kemudian tambahkan CSS.
   border-top: 1px solid #eeeeee;
   margin: 40px 0;
 }
-  /* entry */
-  .entry {
+/* entry */
+.entry {
   margin: 15px 0;
-  }
-  .entry h2 {
+}
+.entry h2 {
   margin-bottom: 20px;
 }
 .entry p {
@@ -481,17 +481,301 @@ Kemudian tambahkan CSS.
   border-radius: 5px;
   margin: 15px;
 }
-.entry .right-img{
+.entry .right-img {
   float: right;
 }
 ```
+
 ![tampilan_artikel](asset/img/tampilan_artikel.png)
+
 <hr>
 
 # Pertanyaan dan tugas
+
 <hr>
 
 ### 1. Tambahkan Layout untuk menu About
+
 => buat single layout yang berisi deskripsi, portfolio, dll
+
 ### 2. Tambahkan layout untuk menu Contact
+
 => yang berisi form isian: nama, email, message, dll
+
+<hr>
+
+## Jawaban
+
+### 1. Membuat About
+
+- _HTML_
+
+```html
+<div class="about">
+  <div>
+    <h1 class="title">About me</h1>
+    <br />
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lorem
+      elit, iaculis in nisl volutpat, malesuada tincidunt arcu. Proin in leo
+      fringilla, vestibulum mi porta, faucibus felis. Integer pharetra est nunc,
+      nec pretium nunc pretium ac.
+    </p>
+  </div>
+  <div>
+    <img class="avatar" src="asset/img/profile_img.jpg" />
+  </div>
+</div>
+```
+
+- _CSS_
+
+```css
+/*layout About*/
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c0bdbd;
+  clear: both;
+  padding: 35px;
+  line-height: 25px;
+}
+.avatar {
+  width: 110px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+```
+
+Kemudian lihat hasilnya
+
+![about](asset/img/about.png)
+
+### 2. Buat HTML Seperti Berikut
+
+- _HTML_
+
+```html
+<div class="kontak-body">
+  <h1>Contact</h1>
+  <form class="kontak-form-class">
+    <div class="form-form-group">
+      <label for="name" class="kontak-label">Your Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="kontak-form-control"
+        required
+      />
+    </div>
+    <div class="kontak-form-group">
+      <label for="name" class="kontak-label">Your Email</label>
+      <div class="kontak-input-group">
+        <input
+          type="email"
+          id="email"
+          name="name"
+          class="kontak-form-control"
+          required
+        />
+      </div>
+    </div>
+  </form>
+  <div class="kontak-form-group">
+    <label for="name" class="kontak-label">Subject</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      class="kontak-form-control"
+      required
+    />
+  </div>
+  <div class="kontak-form-group">
+    <label for="name" class="kontak-label">Message</label>
+    <div class="kontak-input-group">
+      <textarea
+        id="message"
+        name="message"
+        class="kontak-form-control"
+        rows="6"
+        maxlength="3000"
+        required
+      ></textarea>
+    </div>
+  </div>
+  <div class="kontak-form-group">
+    <div class="loading">Loading</div>
+    <div class="error-message"></div>
+    <div class="sent-message">Your message has been sent. Thank you!</div>
+  </div>
+  <div class="text-center">
+    <button type="submit">Send Message</button>
+  </div>
+</div>
+```
+
+- _CSS_
+
+```CSS
+/*layout About*/
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e0dede;
+  clear: both;
+  padding: 35px;
+  line-height: 25px;
+}
+.avatar {
+  width: 110px;
+  border-radius: 50%;
+}
+/*Layout Kontak*/
+.kontak-body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  padding: 30px;
+  padding-bottom: 10px;
+  border: 1px solid #e0dede;
+  border-radius: 0.25rem;
+  max-width: 100%;
+}
+.kontak-form-group {
+  margin-bottom: 1rem;
+}
+.kontak-input-group {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100%;
+}
+.kontak-form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(56, 54, 54);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #c6c6c6;
+  outline: none;
+  border-radius: 00.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.kontak-form-control:focus {
+  border: 1px solid #313131;
+}
+
+textarea.kontak-form-control {
+  height: auto;
+}
+
+label.kontak-label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.loading {
+  display: none;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px;
+}
+.loading:before {
+  color: "";
+  display: inline-block;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #44e917;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+  -webkit-animation: animate-loading 1s linear infinite;
+}
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sent-message {
+  display: none;
+  color: #fff;
+  background: chartreuse;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.error-message {
+  display: none;
+  color: #fff;
+  background: red;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.error-message br + br {
+  margin: 25px;
+}
+
+.sent-message {
+  display: none;
+  color: #fffefe;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+button[type="submit"] {
+  background: #27a803;
+  border: 0;
+  padding: 10px 24px;
+  color: rgb(255, 255, 255);
+  transition: 0, 4s;
+  border-radius: 4px;
+}
+button[type="submit"]:hover {
+  background: rgb(98, 192, 54);
+}
+```
+
+Kemudian buka browser untuk melihat hasil
+
+![contact](asset/img/contact.png)
